@@ -1,6 +1,6 @@
+from .models import Article
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .models import Article
 
 def index(request):
     articles = Article.objects.all()
@@ -17,3 +17,14 @@ def detail(request, id):
     'article': article,
   }
   return render(request, 'bbs/ditail.html', context)
+
+  # def create(request):
+  #   article = Aricle(content= 'Hello BBS', user_name='paiza' )
+  #   article.save()
+
+  #   articles = Article.objects.all()
+  #   context = {
+  #     'message': 'Create article',
+  #     'articles': articles,
+  #   }
+  #   return render(request, 'bbs/index.html', context)
